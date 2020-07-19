@@ -1,0 +1,30 @@
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+
+import { NgForm } from '@angular/forms';
+import { PostsService } from '../posts.service';
+
+@Component({
+  selector: 'app-post-create',
+  templateUrl: './post-create.component.html',
+  styleUrls: ['./post-create.component.scss']
+})
+export class PostCreateComponent implements OnInit {
+
+  enteredTitle: string = '';
+  enteredContent: string = '';
+
+  constructor(public postsService: PostsService) { }
+
+  ngOnInit(): void {
+
+  }
+
+  onAddPost(form: NgForm) {
+    if (form.invalid) {
+      return true;
+    }
+
+    this.postsService.addPost(form.value.title, form.value.content);
+    form.resetForm();
+  }
+}
