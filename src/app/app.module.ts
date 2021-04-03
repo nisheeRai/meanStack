@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule  } from '@angular/material/button';
 import { MatExpansionModule  } from '@angular/material/expansion';
+import { HttpClientModule } from "@angular/common/http";
 
 import { FormsModule } from '@angular/forms';
 
@@ -34,7 +35,8 @@ import { PostsService } from './posts/posts.service';
     MatToolbarModule,
     MatButtonModule,
     MatExpansionModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]
